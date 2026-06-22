@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Commandeck — Your AI gives you the commands. Commandeck remembers them.</title>
+<title>Commandeck — Your server commands, one tap away.</title>
 <meta name="description" content="A visual button grid that runs your home-server commands with one tap. Nothing leaves your device. No account. No cloud. 14-day free trial." />
 <style>
   :root{
@@ -69,7 +69,9 @@
   .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
   .tile{aspect-ratio:1.35;border-radius:14px;border:1px solid var(--line);background:var(--card);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;font-size:13px;color:var(--muted);transition:transform .2s,border-color .2s}
   .tile:hover{transform:translateY(-3px);border-color:var(--brand)}
-  .tile .ic{font-size:24px}
+  .tile .ic{font-size:24px;color:#c9cadb;line-height:0}
+  .tile .ic svg{width:26px;height:26px;display:block}
+  .tile.accent .ic{color:var(--txt)}
   .tile.accent{background:linear-gradient(160deg,rgba(124,92,255,.18),rgba(34,211,238,.10));border-color:rgba(124,92,255,.5);color:var(--txt)}
   @media(max-width:560px){.tiles{grid-template-columns:repeat(2,1fr)}}
 
@@ -111,7 +113,9 @@
   .phone{margin:0 auto;width:230px;height:460px;border-radius:36px;border:1px solid var(--line);background:linear-gradient(180deg,#13131d,#0c0c14);padding:16px;box-shadow:0 30px 80px rgba(0,0,0,.6);position:relative}
   .phone::before{content:"";position:absolute;top:14px;left:50%;transform:translateX(-50%);width:70px;height:6px;border-radius:6px;background:#2a2a3a}
   .ptiles{margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
-  .ptile{aspect-ratio:1;border-radius:12px;border:1px solid var(--line);background:var(--card);display:flex;align-items:center;justify-content:center;font-size:22px}
+  .ptile{aspect-ratio:1;border-radius:12px;border:1px solid var(--line);background:var(--card);display:flex;align-items:center;justify-content:center;font-size:22px;color:#c9cadb}
+  .ptile svg{width:24px;height:24px;display:block}
+  .ptile.accent{color:var(--txt)}
   .ptile.accent{background:linear-gradient(160deg,rgba(124,92,255,.2),rgba(34,211,238,.12));border-color:rgba(124,92,255,.5)}
 
   /* persona */
@@ -123,8 +127,8 @@
 
   /* pricing */
   .pricing{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .price-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:48px;max-width:760px;margin-left:auto;margin-right:auto}
-  @media(max-width:680px){.price-grid{grid-template-columns:1fr}}
+  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px;max-width:980px;margin-left:auto;margin-right:auto}
+  @media(max-width:880px){.price-grid{grid-template-columns:1fr}}
   .plan{border:1px solid var(--line);border-radius:20px;padding:34px;background:var(--card);position:relative}
   .plan.pro{border-color:rgba(124,92,255,.5);box-shadow:0 24px 70px rgba(124,92,255,.18)}
   .plan .tag{position:absolute;top:-12px;right:24px;font-size:12px;font-weight:700;background:var(--grad);color:#0a0a0f;padding:5px 12px;border-radius:999px}
@@ -166,8 +170,8 @@
 <div class="wrap">
   <div class="hero">
     <span class="pill"><span class="dot"></span> Private by design — nothing leaves your device</span>
-    <h1>Your AI gives you the commands.<br><span class="grad-text">Commandeck remembers them.</span></h1>
-    <p class="sub">A visual button grid that runs your home-server commands with one tap — so you never dig through old AI chats to find that command again.</p>
+    <h1>Your server commands,<br><span class="grad-text">one tap away.</span></h1>
+    <p class="sub">Commandeck turns the commands you rely on into a visual button grid. Save them once, run them with a tap — on your computer or over SSH to your machines.</p>
     <div class="cta-row">
       <a href="#pricing" class="btn btn-primary">Start your 14-day trial →</a>
       <a href="#how" class="btn btn-ghost">See how it works</a>
@@ -177,14 +181,14 @@
     <div class="mock" aria-hidden="true">
       <div class="mock-bar"><span></span><span></span><span></span></div>
       <div class="tiles">
-        <div class="tile accent"><span class="ic">🔄</span> Restart Plex</div>
-        <div class="tile"><span class="ic">📊</span> Disk usage</div>
-        <div class="tile"><span class="ic">🐳</span> Update containers</div>
-        <div class="tile"><span class="ic">🌡️</span> CPU temp</div>
-        <div class="tile"><span class="ic">💾</span> Backup now</div>
-        <div class="tile accent"><span class="ic">🔌</span> Reboot NAS</div>
-        <div class="tile"><span class="ic">📶</span> Network check</div>
-        <div class="tile"><span class="ic">📁</span> Free up space</div>
+        <div class="tile accent"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="m14.12 10.163 1.715.858c.22.11.22.424 0 .534L8.267 15.34a.6.6 0 0 1-.534 0L.165 11.555a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.66zM7.733.063a.6.6 0 0 1 .534 0l7.568 3.784a.3.3 0 0 1 0 .535L8.267 8.165a.6.6 0 0 1-.534 0L.165 4.382a.299.299 0 0 1 0-.535z"/><path d="m14.12 6.576 1.715.858c.22.11.22.424 0 .534l-7.568 3.784a.6.6 0 0 1-.534 0L.165 7.968a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0z"/></svg></span> Update containers</div>
+        <div class="tile"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M4.5 11a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1M3 10.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0"/><path d="M16 11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V9.51c0-.418.105-.83.305-1.197l2.472-4.531A1.5 1.5 0 0 1 4.094 3h7.812a1.5 1.5 0 0 1 1.317.782l2.472 4.53c.2.368.305.78.305 1.198zM3.655 4.26 1.592 8.043Q1.79 8 2 8h12q.21 0 .408.042L12.345 4.26a.5.5 0 0 0-.439-.26H4.094a.5.5 0 0 0-.44.26zM1 10v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1"/></svg></span> Disk usage</div>
+        <div class="tile"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M5 0a.5.5 0 0 1 .5.5V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2A2.5 2.5 0 0 1 14 4.5h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14a2.5 2.5 0 0 1-2.5 2.5v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14A2.5 2.5 0 0 1 2 11.5H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2A2.5 2.5 0 0 1 4.5 2V.5A.5.5 0 0 1 5 0m-.5 3A1.5 1.5 0 0 0 3 4.5v7A1.5 1.5 0 0 0 4.5 13h7a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 11.5 3zM5 6.5A1.5 1.5 0 0 1 6.5 5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5zM6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z"/></svg></span> CPU load</div>
+        <div class="tile"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M9.5 12.5a1.5 1.5 0 1 1-2-1.415V6.5a.5.5 0 0 1 1 0v4.585a1.5 1.5 0 0 1 1 1.415z"/><path d="M5.5 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0V2.5zM8 1a1.5 1.5 0 0 0-1.5 1.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0l-.166-.15V2.5A1.5 1.5 0 0 0 8 1z"/></svg></span> CPU temp</div>
+        <div class="tile"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M6 2a.5.5 0 0 1 .47.33L10 12.036l1.53-4.208A.5.5 0 0 1 12 7.5h3.5a.5.5 0 0 1 0 1h-3.15l-1.88 5.17a.5.5 0 0 1-.94 0L6 3.964 4.47 8.171A.5.5 0 0 1 4 8.5H.5a.5.5 0 0 1 0-1h3.15l1.88-5.17A.5.5 0 0 1 6 2"/></svg></span> System health</div>
+        <div class="tile accent"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M7.5 1v7h1V1z"/><path d="M3 8.812a5 5 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812"/></svg></span> Reboot NAS</div>
+        <div class="tile"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M14 13.5v-7a.5.5 0 0 0-.5-.5H12V4.5a.5.5 0 0 0-.5-.5h-1v-.5A.5.5 0 0 0 10 3H6a.5.5 0 0 0-.5.5V4h-1a.5.5 0 0 0-.5.5V6H2.5a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5M3.75 11h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-1.5a.25.25 0 0 1 .25-.25m2 0h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-1.5a.25.25 0 0 1 .25-.25m1.75.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25zM9.75 11h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-1.5a.25.25 0 0 1 .25-.25m1.75.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25z"/><path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 2a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1z"/></svg></span> Network check</div>
+        <div class="tile"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/><path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/></svg></span> Free up space</div>
       </div>
     </div>
   </div>
@@ -194,13 +198,13 @@
 <section class="problem">
   <div class="wrap center">
     <p class="eyebrow">Sound familiar?</p>
-    <h2>The command worked. Then you lost it.</h2>
-    <p class="lead">Your AI assistant hands you the perfect command for your server. A week later you need it again — and you're scrolling through endless old chats trying to find it.</p>
+    <h2>You found the command once. Now where is it?</h2>
+    <p class="lead">That command you needed for your server — you tracked it down, it worked, and now it's buried in a note, a browser tab or some chat log. Next time, you start hunting all over again.</p>
     <div class="chat" aria-hidden="true">
-      <div class="bubble ai"><small>Your AI</small>Sure! Run this to restart your container: <code>docker restart plex</code></div>
-      <div class="bubble you"><small>You, a week later</small>…now where did I put that command 😩</div>
+      <div class="bubble ai"><small>The command that worked</small><code>docker restart plex</code></div>
+      <div class="bubble you"><small>You, a week later</small>…now where did I save that 😩</div>
     </div>
-    <p class="lead center" style="margin-top:36px">Commandeck turns that command into a button you tap. Once. Forever.</p>
+    <p class="lead center" style="margin-top:36px">Commandeck turns it into a button you tap. Once. Forever.</p>
   </div>
 </section>
 
@@ -208,22 +212,22 @@
 <section id="how">
   <div class="wrap center">
     <p class="eyebrow">How it works</p>
-    <h2>From AI chat to one tap</h2>
+    <h2>From command to one tap</h2>
     <div class="steps" style="text-align:left">
       <div class="step">
         <div class="n">1</div>
-        <h3>Your AI gives you a command</h3>
-        <p>Ask your assistant how to do something on your server. It replies with a command, like it always does.</p>
+        <h3>You've got a command</h3>
+        <p>From a setup guide, a forum, or your AI assistant — wherever it came from, you've got a command that gets the job done.</p>
       </div>
       <div class="step">
         <div class="n">2</div>
-        <h3>Paste it into a button</h3>
-        <p>Drop the command into Commandeck, give it a name and an icon. No terminal, no syntax to memorize.</p>
+        <h3>Make it a button</h3>
+        <p>Paste it into Commandeck, give it a name and an icon. No terminal, nothing to memorize.</p>
       </div>
       <div class="step">
         <div class="n">3</div>
         <h3>Tap it whenever you need it</h3>
-        <p>It runs locally or over SSH to your server. The command is saved for good — no more chat archaeology.</p>
+        <p>It runs on your computer or over SSH to your machines. Saved for good — no more hunting.</p>
       </div>
     </div>
   </div>
@@ -250,30 +254,56 @@
   </div>
 </section>
 
-<!-- ANYWHERE / ANDROID -->
+<!-- ANDROID -->
 <section>
   <div class="wrap split">
     <div class="feature-card center" style="background:transparent;border:none;padding:0">
       <div class="phone" aria-hidden="true">
         <div class="ptiles">
-          <div class="ptile accent">🔄</div>
-          <div class="ptile">📊</div>
-          <div class="ptile">🐳</div>
-          <div class="ptile">🌡️</div>
-          <div class="ptile">💾</div>
-          <div class="ptile accent">🔌</div>
+          <div class="ptile accent"><svg viewBox="0 0 16 16" fill="currentColor"><path d="m14.12 10.163 1.715.858c.22.11.22.424 0 .534L8.267 15.34a.6.6 0 0 1-.534 0L.165 11.555a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.66zM7.733.063a.6.6 0 0 1 .534 0l7.568 3.784a.3.3 0 0 1 0 .535L8.267 8.165a.6.6 0 0 1-.534 0L.165 4.382a.299.299 0 0 1 0-.535z"/><path d="m14.12 6.576 1.715.858c.22.11.22.424 0 .534l-7.568 3.784a.6.6 0 0 1-.534 0L.165 7.968a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0z"/></svg></div>
+          <div class="ptile"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M4.5 11a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1M3 10.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0"/><path d="M16 11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V9.51c0-.418.105-.83.305-1.197l2.472-4.531A1.5 1.5 0 0 1 4.094 3h7.812a1.5 1.5 0 0 1 1.317.782l2.472 4.53c.2.368.305.78.305 1.198zM3.655 4.26 1.592 8.043Q1.79 8 2 8h12q.21 0 .408.042L12.345 4.26a.5.5 0 0 0-.439-.26H4.094a.5.5 0 0 0-.44.26zM1 10v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1"/></svg></div>
+          <div class="ptile"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M5 0a.5.5 0 0 1 .5.5V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2A2.5 2.5 0 0 1 14 4.5h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14a2.5 2.5 0 0 1-2.5 2.5v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14A2.5 2.5 0 0 1 2 11.5H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2A2.5 2.5 0 0 1 4.5 2V.5A.5.5 0 0 1 5 0m-.5 3A1.5 1.5 0 0 0 3 4.5v7A1.5 1.5 0 0 0 4.5 13h7a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 11.5 3zM5 6.5A1.5 1.5 0 0 1 6.5 5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5zM6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z"/></svg></div>
+          <div class="ptile"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M9.5 12.5a1.5 1.5 0 1 1-2-1.415V6.5a.5.5 0 0 1 1 0v4.585a1.5 1.5 0 0 1 1 1.415z"/><path d="M5.5 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0V2.5zM8 1a1.5 1.5 0 0 0-1.5 1.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0l-.166-.15V2.5A1.5 1.5 0 0 0 8 1z"/></svg></div>
+          <div class="ptile"><svg viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M6 2a.5.5 0 0 1 .47.33L10 12.036l1.53-4.208A.5.5 0 0 1 12 7.5h3.5a.5.5 0 0 1 0 1h-3.15l-1.88 5.17a.5.5 0 0 1-.94 0L6 3.964 4.47 8.171A.5.5 0 0 1 4 8.5H.5a.5.5 0 0 1 0-1h3.15l1.88-5.17A.5.5 0 0 1 6 2"/></svg></div>
+          <div class="ptile accent"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M7.5 1v7h1V1z"/><path d="M3 8.812a5 5 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812"/></svg></div>
         </div>
       </div>
     </div>
     <div>
       <span class="badge">📱 Commandeck for Android</span>
-      <h2>Manage your server from anywhere.</h2>
-      <p class="lead">On the couch, at work, on the road — your buttons are in your pocket. Reboot the NAS, restart a container, check disk space, all from your phone.</p>
+      <h2>Your control panel, in your pocket.</h2>
+      <p class="lead">Put your button grid on your phone. From the couch, reboot the NAS, restart a container or check disk space — without getting up for the laptop.</p>
       <ul class="check">
         <li><span class="tick">✓</span><span>Same button grid, on mobile.</span></li>
-        <li><span class="tick">✓</span><span>Secure SSH to your machines.</span></li>
+        <li><span class="tick">✓</span><span>Reaches your machines over SSH on your network.</span></li>
         <li><span class="tick">✓</span><span>One-time price, yours for life.</span></li>
       </ul>
+      <p class="reassure" style="margin-top:16px">Out and about? It works wherever your phone can reach your machines — at home, or through your own VPN.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MULTI-MACHINE -->
+<section style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap split">
+    <div>
+      <span class="badge">⚡ Multi-machine</span>
+      <h2>One command. Every machine.</h2>
+      <p class="lead">Looking after more than one box? Send the same command to a whole group at once — update them, reboot them, check on them — instead of repeating yourself on each one.</p>
+      <ul class="check">
+        <li><span class="tick">✓</span><span><b>Pick several machines,</b> run the command once.</span></li>
+        <li><span class="tick">✓</span><span><b>One button</b> across your whole fleet.</span></li>
+        <li><span class="tick">✓</span><span>Works the same whether it's 2 boxes or 20.</span></li>
+      </ul>
+    </div>
+    <div class="feature-card">
+      <div style="font-size:15px;color:var(--muted);margin-bottom:16px">Run on</div>
+      <div class="tiles" style="grid-template-columns:repeat(3,1fr)">
+        <div class="tile accent"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M1.333 2.667C1.333 1.194 4.318 0 8 0s6.667 1.194 6.667 2.667V4c0 1.473-2.985 2.667-6.667 2.667S1.333 5.473 1.333 4z"/><path d="M1.333 6.334v3C1.333 10.805 4.318 12 8 12s6.667-1.194 6.667-2.667V6.334a6.5 6.5 0 0 1-1.458.79C11.81 7.684 9.967 8 8 8s-3.809-.317-5.208-.876a6.5 6.5 0 0 1-1.458-.79z"/><path d="M14.667 11.668a6.5 6.5 0 0 1-1.458.789c-1.4.56-3.242.876-5.21.876-1.966 0-3.809-.316-5.208-.876a6.5 6.5 0 0 1-1.458-.79v1.666C1.333 14.806 4.318 16 8 16s6.667-1.194 6.667-2.667z"/></svg></span> web-01</div>
+        <div class="tile accent"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M1.333 2.667C1.333 1.194 4.318 0 8 0s6.667 1.194 6.667 2.667V4c0 1.473-2.985 2.667-6.667 2.667S1.333 5.473 1.333 4z"/><path d="M1.333 6.334v3C1.333 10.805 4.318 12 8 12s6.667-1.194 6.667-2.667V6.334a6.5 6.5 0 0 1-1.458.79C11.81 7.684 9.967 8 8 8s-3.809-.317-5.208-.876a6.5 6.5 0 0 1-1.458-.79z"/><path d="M14.667 11.668a6.5 6.5 0 0 1-1.458.789c-1.4.56-3.242.876-5.21.876-1.966 0-3.809-.316-5.208-.876a6.5 6.5 0 0 1-1.458-.79v1.666C1.333 14.806 4.318 16 8 16s6.667-1.194 6.667-2.667z"/></svg></span> web-02</div>
+        <div class="tile accent"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M1.333 2.667C1.333 1.194 4.318 0 8 0s6.667 1.194 6.667 2.667V4c0 1.473-2.985 2.667-6.667 2.667S1.333 5.473 1.333 4z"/><path d="M1.333 6.334v3C1.333 10.805 4.318 12 8 12s6.667-1.194 6.667-2.667V6.334a6.5 6.5 0 0 1-1.458.79C11.81 7.684 9.967 8 8 8s-3.809-.317-5.208-.876a6.5 6.5 0 0 1-1.458-.79z"/><path d="M14.667 11.668a6.5 6.5 0 0 1-1.458.789c-1.4.56-3.242.876-5.21.876-1.966 0-3.809-.316-5.208-.876a6.5 6.5 0 0 1-1.458-.79v1.666C1.333 14.806 4.318 16 8 16s6.667-1.194 6.667-2.667z"/></svg></span> db-01</div>
+      </div>
+      <p style="color:var(--muted);font-size:14px;margin-top:18px">One tap → the command runs on every selected machine.</p>
     </div>
   </div>
 </section>
@@ -287,7 +317,7 @@
       <div class="pcard"><div class="ic">🏠</div><p>You run a <b style="color:var(--txt)">home server</b> — a NAS, mini-PC, Proxmox or Docker box — with a machine or three.</p></div>
       <div class="pcard"><div class="ic">🤖</div><p>You set it up <b style="color:var(--txt)">with an AI as your tutor</b>, and you'd rather not live in a terminal.</p></div>
       <div class="pcard"><div class="ic">💡</div><p>You're comfortable on Windows or Mac, but <b style="color:var(--txt)">command lines aren't your happy place</b>.</p></div>
-      <div class="pcard"><div class="ic">🎯</div><p>You want your good commands <b style="color:var(--txt)">saved and one tap away</b> — not buried in chat history.</p></div>
+      <div class="pcard"><div class="ic">🎯</div><p>You want your go-to commands <b style="color:var(--txt)">saved and one tap away</b> — across one machine or several.</p></div>
     </div>
   </div>
 </section>
@@ -300,27 +330,39 @@
     <p class="lead center">No subscription. No renewal. Try everything free for 14 days.</p>
     <div class="price-grid" style="text-align:left">
       <div class="plan">
+        <h3>Free</h3>
+        <div class="amt">$0</div>
+        <p class="desc">Run commands on this computer. Forever.</p>
+        <ul>
+          <li><span class="tick">✓</span> Unlimited buttons on your PC</li>
+          <li><span class="tick">✓</span> All icons &amp; themes</li>
+          <li><span class="tick">✓</span> No account, fully private</li>
+          <li><span class="tick">✓</span> Upgrade to SSH anytime</li>
+        </ul>
+        <a href="#" class="btn btn-ghost">Download free</a>
+      </div>
+      <div class="plan pro">
+        <span class="tag">Most popular</span>
         <h3>Desktop</h3>
         <div class="amt">$29 <span>once</span></div>
-        <p class="desc">Windows, macOS &amp; Linux. Lifetime license.</p>
+        <p class="desc">Windows, macOS &amp; Linux. Lifetime.</p>
         <ul>
-          <li><span class="tick">✓</span> Unlimited buttons, local &amp; SSH</li>
-          <li><span class="tick">✓</span> Connect all your machines</li>
-          <li><span class="tick">✓</span> Themes, backup, AI integration</li>
-          <li><span class="tick">✓</span> 14-day free trial, no card</li>
+          <li><span class="tick">✓</span> Everything in Free</li>
+          <li><span class="tick">✓</span> SSH to all your machines</li>
+          <li><span class="tick">✓</span> Run on several machines at once</li>
+          <li><span class="tick">✓</span> Themes, backup &amp; more — 14-day trial</li>
         </ul>
         <a href="#" class="btn btn-primary">Start your 14-day trial</a>
       </div>
-      <div class="plan pro">
-        <span class="tag">From anywhere</span>
+      <div class="plan">
         <h3>Android</h3>
         <div class="amt">$19 <span>once</span></div>
-        <p class="desc">Your server in your pocket. Lifetime.</p>
+        <p class="desc">Your buttons in your pocket. Lifetime.</p>
         <ul>
           <li><span class="tick">✓</span> The full button grid, on mobile</li>
           <li><span class="tick">✓</span> Secure SSH to your machines</li>
           <li><span class="tick">✓</span> One-time price, no subscription</li>
-          <li><span class="tick">✓</span> Already own desktop? Ask about the crossgrade</li>
+          <li><span class="tick">✓</span> Own desktop? Ask about the crossgrade</li>
         </ul>
         <a href="#" class="btn btn-primary">Get it on Google Play</a>
       </div>
@@ -333,7 +375,7 @@
   <div class="wrap">
     <div class="box">
       <h2>Stop hunting. Start tapping.</h2>
-      <p class="lead center" style="margin-bottom:30px">Your AI already knows the commands. Give them a home.</p>
+      <p class="lead center" style="margin-bottom:30px">The commands you rely on — saved, organized, and one tap away.</p>
       <a href="#pricing" class="btn btn-primary">Start your 14-day trial →</a>
     </div>
   </div>
