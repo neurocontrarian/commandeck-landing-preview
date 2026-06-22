@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Commandeck — Your server commands, one tap away.</title>
 <meta name="description" content="A visual button grid that runs your home-server commands with one tap. Nothing leaves your device. No account. No cloud. 14-day free trial." />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Commandeck — your server commands, one tap away" />
+<meta property="og:description" content="A visual button grid for your local & SSH commands. Private by design — nothing leaves your device, no account, no cloud." />
+<meta property="og:image" content="https://commandeck.app/assets/og-cover.png" />
+<meta property="og:url" content="https://commandeck.app/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://commandeck.app/assets/og-cover.png" />
 <style>
   :root{
     --bg:#0a0a0f;
@@ -134,6 +142,21 @@
   .ptile.accent{color:var(--txt)}
   .ptile.accent{background:linear-gradient(160deg,rgba(124,92,255,.2),rgba(34,211,238,.12));border-color:rgba(124,92,255,.5)}
 
+  /* features grid */
+  .fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;text-align:left}
+  @media(max-width:780px){.fgrid{grid-template-columns:1fr}}
+  .fitem{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;position:relative;transition:border-color .2s,transform .2s}
+  .fitem:hover{border-color:#7c5cff;transform:translateY(-3px)}
+  .fitem .fic{font-size:26px;margin-bottom:14px;display:block}
+  .fitem h3{font-size:17px;margin-bottom:6px;letter-spacing:-.01em}
+  .fitem p{color:var(--muted);font-size:14px}
+  .pro-pill{position:absolute;top:20px;right:20px;font-size:11px;font-weight:700;letter-spacing:.04em;color:#0a0a0f;background:var(--grad);padding:3px 9px;border-radius:999px}
+
+  /* packs */
+  .pack-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:36px auto 0;max-width:700px}
+  .pack-chip{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--txt);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:9px 16px}
+  .pack-chip .d{width:7px;height:7px;border-radius:50%;background:var(--brand-2)}
+
   /* persona */
   .persona-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:40px}
   @media(max-width:680px){.persona-grid{grid-template-columns:1fr}}
@@ -180,6 +203,7 @@
       <div class="nav-links">
         <a href="#how">How it works</a>
         <a href="#features">Features</a>
+        <a href="#packs">Packs</a>
         <a href="#pricing">Pricing</a>
         <a href="https://commandeck.app">Docs</a>
       </div>
@@ -261,8 +285,34 @@
   </div>
 </section>
 
+<!-- SHOWCASE (real screenshot) -->
+<section style="padding-top:24px">
+  <div class="wrap center">
+    <img src="assets/screenshot-neon.png" alt="Commandeck button grid in the Neon theme" loading="lazy"
+         style="max-width:760px;width:100%;border-radius:18px;border:1px solid var(--line);box-shadow:0 40px 120px rgba(0,0,0,.6)" />
+    <p class="reassure" style="margin-top:16px">The real thing — Commandeck with the Neon theme. Six themes included.</p>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="wrap center">
+    <p class="eyebrow">Everything you need</p>
+    <h2>Built to make commands effortless.</h2>
+    <p class="lead center">The essentials are free. SSH and the power features are Pro.</p>
+    <div class="fgrid">
+      <div class="fitem"><span class="fic">⚡</span><h3>One tap to run</h3><p>Local or over SSH, your command runs with a single click — output right in a window.</p></div>
+      <div class="fitem"><span class="fic">⌨️</span><h3>No terminal needed</h3><p>Every command is visible and editable in plain sight. Beginner-first by design.</p></div>
+      <div class="fitem"><span class="pro-pill">PRO</span><span class="fic">🖥️</span><h3>SSH to your servers</h3><p>Reach your NAS, Pi or VPS securely — no OpenSSH setup, no shell wrangling.</p></div>
+      <div class="fitem"><span class="pro-pill">PRO</span><span class="fic">🗂️</span><h3>Run on many machines</h3><p>Send one command to a whole group of machines at once.</p></div>
+      <div class="fitem"><span class="fic">🔒</span><h3>Private &amp; offline</h3><p>No account, no cloud, no telemetry. Your commands and machines stay on your device.</p></div>
+      <div class="fitem"><a href="#packs" style="position:absolute;inset:0"></a><span class="fic">📦</span><h3>Free button packs</h3><p>Install ready-made sets for common tasks in a click. All packs are free.</p></div>
+    </div>
+  </div>
+</section>
+
 <!-- PRIVACY -->
-<section id="features" style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<section style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap split">
     <div>
       <span class="badge">🔒 Private by design</span>
@@ -336,6 +386,48 @@
   </div>
 </section>
 
+<!-- BUTTON PACKS (community / makers) -->
+<section id="packs">
+  <div class="wrap center">
+    <p class="eyebrow">For communities &amp; makers</p>
+    <h2>Button packs: share a whole setup in one click.</h2>
+    <p class="lead center">A pack is a ready-made set of buttons for a tool or a workflow. Install one and you're set up in seconds — no hunting, no guesswork. <b style="color:var(--txt)">Every pack is free.</b></p>
+    <div class="pack-row" aria-hidden="true">
+      <span class="pack-chip"><span class="d"></span> home-server-starter</span>
+      <span class="pack-chip"><span class="d"></span> linux-network</span>
+      <span class="pack-chip"><span class="d"></span> windows-essentials</span>
+      <span class="pack-chip"><span class="d"></span> dev-tools</span>
+      <span class="pack-chip"><span class="d"></span> macos-hardware</span>
+    </div>
+    <div class="split" style="margin-top:52px;text-align:left">
+      <div class="feature-card">
+        <div class="fic" style="font-size:26px;margin-bottom:12px">🌐</div>
+        <h3 style="font-size:19px;margin-bottom:8px">Run a tool or a community?</h3>
+        <p style="color:var(--muted);font-size:15px">Publish an official pack for your project. Commandeck becomes a friendly graphical layer over your commands — and a faster path to "it just works" for your users.</p>
+        <ul class="check">
+          <li><span class="tick">✓</span><span>Your commands, one tap away for everyone.</span></li>
+          <li><span class="tick">✓</span><span>Signed &amp; trusted — installs verified by the app.</span></li>
+          <li><span class="tick">✓</span><span>Free to publish, free for users.</span></li>
+        </ul>
+      </div>
+      <div class="feature-card">
+        <div class="fic" style="font-size:26px;margin-bottom:12px">🛠️</div>
+        <h3 style="font-size:19px;margin-bottom:8px">Built a handy set of buttons?</h3>
+        <p style="color:var(--muted);font-size:15px">Export your buttons as a pack and submit it on GitHub. Once reviewed and signed, it shows up in the in-app gallery for everyone.</p>
+        <ul class="check">
+          <li><span class="tick">✓</span><span>Export to a shareable pack file — free.</span></li>
+          <li><span class="tick">✓</span><span>Submit by pull request, no account needed.</span></li>
+          <li><span class="tick">✓</span><span>Help others skip the setup you already figured out.</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="cta-row" style="margin-top:44px">
+      <a href="https://commandeck.app/packs" class="btn btn-primary">Browse button packs</a>
+      <a href="https://github.com/neurocontrarian/commandeck-packs" class="btn btn-ghost">Create &amp; submit a pack →</a>
+    </div>
+  </div>
+</section>
+
 <!-- PERSONA -->
 <section style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap center">
@@ -381,6 +473,7 @@
           <li><span class="tick">✓</span> Custom themes, backup &amp; more</li>
         </ul>
         <a href="https://github.com/neurocontrarian/commandeck/releases/latest" class="btn btn-primary">Start your 14-day trial</a>
+        <p style="font-size:13px;color:var(--muted);margin-top:12px;text-align:center">or <a href="https://neurocontrarian.lemonsqueezy.com/checkout/buy/9c16845a-8ab6-4a36-b8da-9874d9d64f33" style="color:#9b7bff">buy a license</a> — activate it in the app</p>
       </div>
       <div class="plan">
         <span class="tag" style="background:var(--bg-soft);color:var(--brand-2);border:1px solid rgba(34,211,238,.4)">Coming soon</span>
@@ -391,7 +484,7 @@
           <li><span class="tick">✓</span> The full button grid, on mobile</li>
           <li><span class="tick">✓</span> Secure SSH to your machines</li>
           <li><span class="tick">✓</span> One-time price, no subscription</li>
-          <li><span class="tick">✓</span> Own desktop? A crossgrade is planned</li>
+          <li><span class="tick">✓</span> Local backup &amp; restore</li>
         </ul>
         <a href="#" class="btn btn-ghost" aria-disabled="true">Coming soon</a>
       </div>
