@@ -49,12 +49,15 @@
 
   /* nav */
   header{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,10,15,.6);border-bottom:1px solid var(--line)}
-  nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
   .logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.02em;font-size:18px}
   .logo .mark{width:26px;height:26px;border-radius:8px;background:var(--grad);box-shadow:0 0 18px rgba(124,92,255,.6)}
+  .nav-right{display:flex;align-items:center;gap:14px}
   .nav-cta{font-size:14px;font-weight:600;padding:9px 16px;border-radius:999px;background:var(--grad);color:#0a0a0f;white-space:nowrap}
   .nav-links{display:flex;gap:26px;font-size:14px;color:var(--muted)}
   .nav-links a:hover{color:var(--txt)}
+  .lang-select{background:var(--bg-soft);color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:7px 12px;font-size:13px;cursor:pointer;outline:none}
+  .lang-select:hover{color:var(--txt);border-color:var(--brand)}
   @media(max-width:760px){.nav-links{display:none}}
 
   /* buttons */
@@ -186,6 +189,10 @@
 
   .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
   .reveal.in{opacity:1;transform:none}
+
+  /* RTL */
+  [dir="rtl"] .nav-links,[dir="rtl"] .cta-row{direction:rtl}
+  [dir="rtl"] .fgrid,[dir="rtl"] .price-grid,[dir="rtl"] .persona-grid{text-align:right}
 </style>
 </head>
 <body>
@@ -196,13 +203,29 @@
     <nav>
       <div class="logo"><span class="mark"></span> Commandeck</div>
       <div class="nav-links">
-        <a href="#how">How it works</a>
-        <a href="#features">Features</a>
-        <a href="#packs">Packs</a>
-        <a href="#pricing">Pricing</a>
-        <a href="https://commandeck.app">Docs</a>
+        <a href="#how" data-i18n="nav.how">How it works</a>
+        <a href="#features" data-i18n="nav.features">Features</a>
+        <a href="#packs" data-i18n="nav.packs">Packs</a>
+        <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
+        <a href="https://commandeck.app" data-i18n="nav.docs">Docs</a>
       </div>
-      <a href="https://github.com/neurocontrarian/commandeck/releases/latest" class="nav-cta">Download</a>
+      <div class="nav-right">
+        <select class="lang-select" id="lang-select" aria-label="Language">
+          <option value="en">English</option>
+          <option value="fr">Français</option>
+          <option value="es">Español</option>
+          <option value="de">Deutsch</option>
+          <option value="it">Italiano</option>
+          <option value="pt">Português</option>
+          <option value="ru">Русский</option>
+          <option value="zh">中文</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="ar">العربية</option>
+          <option value="hi">हिन्दी</option>
+        </select>
+        <a href="https://github.com/neurocontrarian/commandeck/releases/latest" class="nav-cta" data-i18n="nav.download">Download</a>
+      </div>
     </nav>
   </div>
 </header>
@@ -210,26 +233,26 @@
 <!-- HERO -->
 <div class="wrap">
   <div class="hero">
-    <span class="pill"><span class="dot"></span> Private by design — nothing leaves your device</span>
-    <h1>Your server commands,<br><span class="grad-text">one tap away.</span></h1>
-    <p class="sub">Commandeck turns the commands you rely on into a visual button grid. Save them once, run them with a tap — on your computer or over SSH to your machines.</p>
+    <span class="pill"><span class="dot"></span> <span data-i18n="hero.pill">Private by design — nothing leaves your device</span></span>
+    <h1 data-i18n="hero.h1">Your server commands,<br><span class="grad-text">one tap away.</span></h1>
+    <p class="sub" data-i18n="hero.sub">Commandeck turns the commands you rely on into a visual button grid. Save them once, run them with a tap — on your computer or over SSH to your machines.</p>
     <div class="cta-row">
-      <a href="https://github.com/neurocontrarian/commandeck/releases/latest" class="btn btn-primary">Download — free 14-day Pro trial →</a>
-      <a href="#how" class="btn btn-ghost">See how it works</a>
+      <a href="https://github.com/neurocontrarian/commandeck/releases/latest" class="btn btn-primary" data-i18n="hero.cta1">Download — free 14-day Pro trial →</a>
+      <a href="#how" class="btn btn-ghost" data-i18n="hero.cta2">See how it works</a>
     </div>
-    <p class="reassure">No account. No cloud. No terminal required.</p>
+    <p class="reassure" data-i18n="hero.reassure">No account. No cloud. No terminal required.</p>
 
     <div class="mock" aria-hidden="true">
       <div class="mock-bar"><span></span><span></span><span></span></div>
       <div class="tiles">
-        <div class="tile accent"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="m14.12 10.163 1.715.858c.22.11.22.424 0 .534L8.267 15.34a.6.6 0 0 1-.534 0L.165 11.555a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.66zM7.733.063a.6.6 0 0 1 .534 0l7.568 3.784a.3.3 0 0 1 0 .535L8.267 8.165a.6.6 0 0 1-.534 0L.165 4.382a.299.299 0 0 1 0-.535z"/><path d="m14.12 6.576 1.715.858c.22.11.22.424 0 .534l-7.568 3.784a.6.6 0 0 1-.534 0L.165 7.968a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0z"/></svg></span> Update containers</div>
-        <div class="tile"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M4.5 11a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1M3 10.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0"/><path d="M16 11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V9.51c0-.418.105-.83.305-1.197l2.472-4.531A1.5 1.5 0 0 1 4.094 3h7.812a1.5 1.5 0 0 1 1.317.782l2.472 4.53c.2.368.305.78.305 1.198zM3.655 4.26 1.592 8.043Q1.79 8 2 8h12q.21 0 .408.042L12.345 4.26a.5.5 0 0 0-.439-.26H4.094a.5.5 0 0 0-.44.26zM1 10v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1"/></svg></span> Disk usage</div>
-        <div class="tile"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M5 0a.5.5 0 0 1 .5.5V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2A2.5 2.5 0 0 1 14 4.5h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14a2.5 2.5 0 0 1-2.5 2.5v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14A2.5 2.5 0 0 1 2 11.5H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2A2.5 2.5 0 0 1 4.5 2V.5A.5.5 0 0 1 5 0m-.5 3A1.5 1.5 0 0 0 3 4.5v7A1.5 1.5 0 0 0 4.5 13h7a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 11.5 3zM5 6.5A1.5 1.5 0 0 1 6.5 5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5zM6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z"/></svg></span> CPU load</div>
-        <div class="tile"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M9.5 12.5a1.5 1.5 0 1 1-2-1.415V6.5a.5.5 0 0 1 1 0v4.585a1.5 1.5 0 0 1 1 1.415z"/><path d="M5.5 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0V2.5zM8 1a1.5 1.5 0 0 0-1.5 1.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0l-.166-.15V2.5A1.5 1.5 0 0 0 8 1z"/></svg></span> CPU temp</div>
-        <div class="tile"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M6 2a.5.5 0 0 1 .47.33L10 12.036l1.53-4.208A.5.5 0 0 1 12 7.5h3.5a.5.5 0 0 1 0 1h-3.15l-1.88 5.17a.5.5 0 0 1-.94 0L6 3.964 4.47 8.171A.5.5 0 0 1 4 8.5H.5a.5.5 0 0 1 0-1h3.15l1.88-5.17A.5.5 0 0 1 6 2"/></svg></span> System health</div>
-        <div class="tile accent"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M7.5 1v7h1V1z"/><path d="M3 8.812a5 5 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812"/></svg></span> Reboot NAS</div>
-        <div class="tile"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M14 13.5v-7a.5.5 0 0 0-.5-.5H12V4.5a.5.5 0 0 0-.5-.5h-1v-.5A.5.5 0 0 0 10 3H6a.5.5 0 0 0-.5.5V4h-1a.5.5 0 0 0-.5.5V6H2.5a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5M3.75 11h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-1.5a.25.25 0 0 1 .25-.25m2 0h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-1.5a.25.25 0 0 1 .25-.25m1.75.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25zM9.75 11h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-1.5a.25.25 0 0 1 .25-.25m1.75.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25z"/><path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 2a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1z"/></svg></span> Network check</div>
-        <div class="tile"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/><path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/></svg></span> Free up space</div>
+        <div class="tile accent"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="m14.12 10.163 1.715.858c.22.11.22.424 0 .534L8.267 15.34a.6.6 0 0 1-.534 0L.165 11.555a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.66zM7.733.063a.6.6 0 0 1 .534 0l7.568 3.784a.3.3 0 0 1 0 .535L8.267 8.165a.6.6 0 0 1-.534 0L.165 4.382a.299.299 0 0 1 0-.535z"/><path d="m14.12 6.576 1.715.858c.22.11.22.424 0 .534l-7.568 3.784a.6.6 0 0 1-.534 0L.165 7.968a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0z"/></svg></span> <span data-i18n="tile.update">Update containers</span></div>
+        <div class="tile"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M4.5 11a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1M3 10.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0"/><path d="M16 11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V9.51c0-.418.105-.83.305-1.197l2.472-4.531A1.5 1.5 0 0 1 4.094 3h7.812a1.5 1.5 0 0 1 1.317.782l2.472 4.53c.2.368.305.78.305 1.198zM3.655 4.26 1.592 8.043Q1.79 8 2 8h12q.21 0 .408.042L12.345 4.26a.5.5 0 0 0-.439-.26H4.094a.5.5 0 0 0-.44.26zM1 10v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1"/></svg></span> <span data-i18n="tile.disk">Disk usage</span></div>
+        <div class="tile"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M5 0a.5.5 0 0 1 .5.5V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2A2.5 2.5 0 0 1 14 4.5h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14a2.5 2.5 0 0 1-2.5 2.5v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14A2.5 2.5 0 0 1 2 11.5H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2A2.5 2.5 0 0 1 4.5 2V.5A.5.5 0 0 1 5 0m-.5 3A1.5 1.5 0 0 0 3 4.5v7A1.5 1.5 0 0 0 4.5 13h7a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 11.5 3zM5 6.5A1.5 1.5 0 0 1 6.5 5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5zM6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z"/></svg></span> <span data-i18n="tile.cpu">CPU load</span></div>
+        <div class="tile"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M9.5 12.5a1.5 1.5 0 1 1-2-1.415V6.5a.5.5 0 0 1 1 0v4.585a1.5 1.5 0 0 1 1 1.415z"/><path d="M5.5 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0V2.5zM8 1a1.5 1.5 0 0 0-1.5 1.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0l-.166-.15V2.5A1.5 1.5 0 0 0 8 1z"/></svg></span> <span data-i18n="tile.temp">CPU temp</span></div>
+        <div class="tile"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M6 2a.5.5 0 0 1 .47.33L10 12.036l1.53-4.208A.5.5 0 0 1 12 7.5h3.5a.5.5 0 0 1 0 1h-3.15l-1.88 5.17a.5.5 0 0 1-.94 0L6 3.964 4.47 8.171A.5.5 0 0 1 4 8.5H.5a.5.5 0 0 1 0-1h3.15l1.88-5.17A.5.5 0 0 1 6 2"/></svg></span> <span data-i18n="tile.health">System health</span></div>
+        <div class="tile accent"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M7.5 1v7h1V1z"/><path d="M3 8.812a5 5 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812"/></svg></span> <span data-i18n="tile.reboot">Reboot NAS</span></div>
+        <div class="tile"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M14 13.5v-7a.5.5 0 0 0-.5-.5H12V4.5a.5.5 0 0 0-.5-.5h-1v-.5A.5.5 0 0 0 10 3H6a.5.5 0 0 0-.5.5V4h-1a.5.5 0 0 0-.5.5V6H2.5a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5M3.75 11h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-1.5a.25.25 0 0 1 .25-.25m2 0h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-1.5a.25.25 0 0 1 .25-.25m1.75.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25zM9.75 11h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-1.5a.25.25 0 0 1 .25-.25m1.75.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25z"/><path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 2a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1z"/></svg></span> <span data-i18n="tile.network">Network check</span></div>
+        <div class="tile"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/><path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/></svg></span> <span data-i18n="tile.space">Free up space</span></div>
       </div>
     </div>
   </div>
@@ -238,19 +261,19 @@
 <!-- PROBLEM -->
 <section class="problem">
   <div class="wrap center">
-    <p class="eyebrow">Sound familiar?</p>
-    <h2>You found the command once. Now where is it?</h2>
-    <p class="lead center">It worked back then. Today, it's scattered across all the places you "saved" it:</p>
+    <p class="eyebrow" data-i18n="prob.eyebrow">Sound familiar?</p>
+    <h2 data-i18n="prob.h2">You found the command once. Now where is it?</h2>
+    <p class="lead center" data-i18n="prob.lead">It worked back then. Today, it's scattered across all the places you "saved" it:</p>
     <div class="hideouts" aria-hidden="true">
-      <div class="hideout"><span class="x">✕</span><span class="ic">📝</span><b>A sticky note</b><span>…somewhere on the desk</span></div>
-      <div class="hideout"><span class="x">✕</span><span class="ic">🗂️</span><b>One of 30 tabs</b><span>still open "just in case"</span></div>
-      <div class="hideout"><span class="x">✕</span><span class="ic">💬</span><b>Page 6 of a chat</b><span>you'll never scroll back to</span></div>
-      <div class="hideout"><span class="x">✕</span><span class="ic">📄</span><b>A notes.txt</b><span>last seen three laptops ago</span></div>
+      <div class="hideout"><span class="x">✕</span><span class="ic">📝</span><b data-i18n="prob.h1t">A sticky note</b><span data-i18n="prob.h1s">…somewhere on the desk</span></div>
+      <div class="hideout"><span class="x">✕</span><span class="ic">🗂️</span><b data-i18n="prob.h2t">One of 30 tabs</b><span data-i18n="prob.h2s">still open "just in case"</span></div>
+      <div class="hideout"><span class="x">✕</span><span class="ic">💬</span><b data-i18n="prob.h3t">Page 6 of a chat</b><span data-i18n="prob.h3s">you'll never scroll back to</span></div>
+      <div class="hideout"><span class="x">✕</span><span class="ic">📄</span><b data-i18n="prob.h4t">A notes.txt</b><span data-i18n="prob.h4s">last seen three laptops ago</span></div>
     </div>
     <div class="arrow-down" aria-hidden="true">↓</div>
     <div class="resolve">
       <span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/></svg></span>
-      One command. One button. One tap.
+      <span data-i18n="prob.resolve">One command. One button. One tap.</span>
     </div>
   </div>
 </section>
@@ -258,23 +281,23 @@
 <!-- HOW -->
 <section id="how">
   <div class="wrap center">
-    <p class="eyebrow">How it works</p>
-    <h2>From command to one tap</h2>
+    <p class="eyebrow" data-i18n="how.eyebrow">How it works</p>
+    <h2 data-i18n="how.h2">From command to one tap</h2>
     <div class="steps" style="text-align:left">
       <div class="step">
         <div class="n">1</div>
-        <h3>You've got a command</h3>
-        <p>From a setup guide, a forum, or your AI assistant — wherever it came from, you've got a command that gets the job done.</p>
+        <h3 data-i18n="how.s1h">You've got a command</h3>
+        <p data-i18n="how.s1p">From a setup guide, a forum, or your AI assistant — wherever it came from, you've got a command that gets the job done.</p>
       </div>
       <div class="step">
         <div class="n">2</div>
-        <h3>Make it a button</h3>
-        <p>Paste it into Commandeck, give it a name and an icon. No terminal, nothing to memorize.</p>
+        <h3 data-i18n="how.s2h">Make it a button</h3>
+        <p data-i18n="how.s2p">Paste it into Commandeck, give it a name and an icon. No terminal, nothing to memorize.</p>
       </div>
       <div class="step">
         <div class="n">3</div>
-        <h3>Tap it whenever you need it</h3>
-        <p>It runs on your computer or over SSH to your machines. Saved for good — no more hunting.</p>
+        <h3 data-i18n="how.s3h">Tap it whenever you need it</h3>
+        <p data-i18n="how.s3p">It runs on your computer or over SSH to your machines. Saved for good — no more hunting.</p>
       </div>
     </div>
   </div>
@@ -285,23 +308,23 @@
   <div class="wrap center">
     <img src="assets/screenshot-neon.png" alt="Commandeck button grid in the Neon theme" loading="lazy"
          style="max-width:760px;width:100%;border-radius:18px;border:1px solid var(--line);box-shadow:0 40px 120px rgba(0,0,0,.6)" />
-    <p class="reassure" style="margin-top:16px">The real thing — Commandeck with the Neon theme. Six themes included.</p>
+    <p class="reassure" style="margin-top:16px" data-i18n="show.caption">The real thing — Commandeck with the Neon theme. Six themes included.</p>
   </div>
 </section>
 
 <!-- FEATURES -->
 <section id="features">
   <div class="wrap center">
-    <p class="eyebrow">Everything you need</p>
-    <h2>Built to make commands effortless.</h2>
-    <p class="lead center">The essentials are free. SSH and the power features are Pro.</p>
+    <p class="eyebrow" data-i18n="feat.eyebrow">Everything you need</p>
+    <h2 data-i18n="feat.h2">Built to make commands effortless.</h2>
+    <p class="lead center" data-i18n="feat.lead">The essentials are free. SSH and the power features are Pro.</p>
     <div class="fgrid">
-      <div class="fitem"><span class="fic">⚡</span><h3>One tap to run</h3><p>Local or over SSH, your command runs with a single click — output right in a window.</p></div>
-      <div class="fitem"><span class="fic">⌨️</span><h3>No terminal needed</h3><p>Every command is visible and editable in plain sight. Beginner-first by design.</p></div>
-      <div class="fitem"><span class="pro-pill">PRO</span><span class="fic">🖥️</span><h3>SSH to your servers</h3><p>Reach your NAS, Pi or VPS securely — no OpenSSH setup, no shell wrangling.</p></div>
-      <div class="fitem"><span class="pro-pill">PRO</span><span class="fic">🗂️</span><h3>Run on many machines</h3><p>Send one command to a whole group of machines at once.</p></div>
-      <div class="fitem"><span class="fic">🔒</span><h3>Private &amp; offline</h3><p>No account, no cloud, no telemetry. Your commands and machines stay on your device.</p></div>
-      <div class="fitem"><a href="#packs" style="position:absolute;inset:0"></a><span class="fic">📦</span><h3>Free button packs</h3><p>Install ready-made sets for common tasks in a click. All packs are free.</p></div>
+      <div class="fitem"><span class="fic">⚡</span><h3 data-i18n="feat.1h">One tap to run</h3><p data-i18n="feat.1p">Local or over SSH, your command runs with a single click — output right in a window.</p></div>
+      <div class="fitem"><span class="fic">⌨️</span><h3 data-i18n="feat.2h">No terminal needed</h3><p data-i18n="feat.2p">Every command is visible and editable in plain sight. Beginner-first by design.</p></div>
+      <div class="fitem"><span class="pro-pill">PRO</span><span class="fic">🖥️</span><h3 data-i18n="feat.3h">SSH to your servers</h3><p data-i18n="feat.3p">Reach your NAS, Pi or VPS securely — no OpenSSH setup, no shell wrangling.</p></div>
+      <div class="fitem"><span class="pro-pill">PRO</span><span class="fic">🗂️</span><h3 data-i18n="feat.4h">Run on many machines</h3><p data-i18n="feat.4p">Send one command to a whole group of machines at once.</p></div>
+      <div class="fitem"><span class="fic">🔒</span><h3 data-i18n="feat.5h">Private &amp; offline</h3><p data-i18n="feat.5p">No account, no cloud, no telemetry. Your commands and machines stay on your device.</p></div>
+      <div class="fitem"><a href="#packs" style="position:absolute;inset:0"></a><span class="fic">📦</span><h3 data-i18n="feat.6h">Free button packs</h3><p data-i18n="feat.6p">Install ready-made sets for common tasks in a click. All packs are free.</p></div>
     </div>
   </div>
 </section>
@@ -310,19 +333,19 @@
 <section style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap split">
     <div>
-      <span class="badge">🔒 Private by design</span>
-      <h2>Your commands stay yours.</h2>
-      <p class="lead">No account to create. No server to sign into. No data sent anywhere. Commandeck runs entirely on your computer — your commands and your machines never touch a cloud, because there isn't one.</p>
+      <span class="badge" data-i18n="priv.badge">🔒 Private by design</span>
+      <h2 data-i18n="priv.h2">Your commands stay yours.</h2>
+      <p class="lead" data-i18n="priv.lead">No account to create. No server to sign into. No data sent anywhere. Commandeck runs entirely on your computer — your commands and your machines never touch a cloud, because there isn't one.</p>
       <ul class="check">
-        <li><span class="tick">✓</span><span><b>Nothing leaves your device.</b> Everything is stored locally.</span></li>
-        <li><span class="tick">✓</span><span><b>No account, ever.</b> Download, open, done.</span></li>
-        <li><span class="tick">✓</span><span><b>Direct connection.</b> SSH straight to your own machines.</span></li>
+        <li><span class="tick">✓</span><span data-i18n="priv.li1"><b>Nothing leaves your device.</b> Everything is stored locally.</span></li>
+        <li><span class="tick">✓</span><span data-i18n="priv.li2"><b>No account, ever.</b> Download, open, done.</span></li>
+        <li><span class="tick">✓</span><span data-i18n="priv.li3"><b>Direct connection.</b> SSH straight to your own machines.</span></li>
       </ul>
     </div>
     <div class="feature-card">
-      <div style="font-size:15px;color:var(--muted)">Where your data lives</div>
-      <div style="font-size:34px;font-weight:800;margin:14px 0;letter-spacing:-.02em">On your device.<br><span class="grad-text">That's the whole list.</span></div>
-      <p style="color:var(--muted);font-size:15px">No telemetry dashboards. No "we value your privacy" banners. Just an app that minds its own business.</p>
+      <div style="font-size:15px;color:var(--muted)" data-i18n="priv.cardlabel">Where your data lives</div>
+      <div style="font-size:34px;font-weight:800;margin:14px 0;letter-spacing:-.02em" data-i18n="priv.cardbig">On your device.<br><span class="grad-text">That's the whole list.</span></div>
+      <p style="color:var(--muted);font-size:15px" data-i18n="priv.cardp">No telemetry dashboards. No "we value your privacy" banners. Just an app that minds its own business.</p>
     </div>
   </div>
 </section>
@@ -343,15 +366,15 @@
       </div>
     </div>
     <div>
-      <span class="badge">📱 Commandeck for Android · coming soon</span>
-      <h2>Your control panel, in your pocket.</h2>
-      <p class="lead">Coming soon: put your button grid on your phone. From the couch, reboot the NAS, restart a container or check disk space — without getting up for the laptop.</p>
+      <span class="badge" data-i18n="and.badge">📱 Commandeck for Android · coming soon</span>
+      <h2 data-i18n="and.h2">Your control panel, in your pocket.</h2>
+      <p class="lead" data-i18n="and.lead">Coming soon: put your button grid on your phone. From the couch, reboot the NAS, restart a container or check disk space — without getting up for the laptop.</p>
       <ul class="check">
-        <li><span class="tick">✓</span><span>Same button grid, on mobile.</span></li>
-        <li><span class="tick">✓</span><span>Reaches your machines over SSH on your network.</span></li>
-        <li><span class="tick">✓</span><span>One-time price, yours for life.</span></li>
+        <li><span class="tick">✓</span><span data-i18n="and.li1">Same button grid, on mobile.</span></li>
+        <li><span class="tick">✓</span><span data-i18n="and.li2">Reaches your machines over SSH on your network.</span></li>
+        <li><span class="tick">✓</span><span data-i18n="and.li3">One-time price, yours for life.</span></li>
       </ul>
-      <p class="reassure" style="margin-top:16px">Out and about? It works wherever your phone can reach your machines — at home, or through your own VPN.</p>
+      <p class="reassure" style="margin-top:16px" data-i18n="and.note">Out and about? It works wherever your phone can reach your machines — at home, or through your own VPN.</p>
     </div>
   </div>
 </section>
@@ -360,23 +383,23 @@
 <section style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap split">
     <div>
-      <span class="badge">⚡ Multi-machine</span>
-      <h2>One command. Every machine.</h2>
-      <p class="lead">Looking after more than one box? Send the same command to a whole group at once — update them, reboot them, check on them — instead of repeating yourself on each one.</p>
+      <span class="badge" data-i18n="multi.badge">⚡ Multi-machine</span>
+      <h2 data-i18n="multi.h2">One command. Every machine.</h2>
+      <p class="lead" data-i18n="multi.lead">Looking after more than one box? Send the same command to a whole group at once — update them, reboot them, check on them — instead of repeating yourself on each one.</p>
       <ul class="check">
-        <li><span class="tick">✓</span><span><b>Pick several machines,</b> run the command once.</span></li>
-        <li><span class="tick">✓</span><span><b>One button</b> across your whole fleet.</span></li>
-        <li><span class="tick">✓</span><span>Works the same whether it's 2 boxes or 20.</span></li>
+        <li><span class="tick">✓</span><span data-i18n="multi.li1"><b>Pick several machines,</b> run the command once.</span></li>
+        <li><span class="tick">✓</span><span data-i18n="multi.li2"><b>One button</b> across your whole fleet.</span></li>
+        <li><span class="tick">✓</span><span data-i18n="multi.li3">Works the same whether it's 2 boxes or 20.</span></li>
       </ul>
     </div>
     <div class="feature-card">
-      <div style="font-size:15px;color:var(--muted);margin-bottom:16px">Run on</div>
+      <div style="font-size:15px;color:var(--muted);margin-bottom:16px" data-i18n="multi.runon">Run on</div>
       <div class="tiles" style="grid-template-columns:repeat(3,1fr)">
         <div class="tile accent"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M1.333 2.667C1.333 1.194 4.318 0 8 0s6.667 1.194 6.667 2.667V4c0 1.473-2.985 2.667-6.667 2.667S1.333 5.473 1.333 4z"/><path d="M1.333 6.334v3C1.333 10.805 4.318 12 8 12s6.667-1.194 6.667-2.667V6.334a6.5 6.5 0 0 1-1.458.79C11.81 7.684 9.967 8 8 8s-3.809-.317-5.208-.876a6.5 6.5 0 0 1-1.458-.79z"/><path d="M14.667 11.668a6.5 6.5 0 0 1-1.458.789c-1.4.56-3.242.876-5.21.876-1.966 0-3.809-.316-5.208-.876a6.5 6.5 0 0 1-1.458-.79v1.666C1.333 14.806 4.318 16 8 16s6.667-1.194 6.667-2.667z"/></svg></span> web-01</div>
         <div class="tile accent"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M1.333 2.667C1.333 1.194 4.318 0 8 0s6.667 1.194 6.667 2.667V4c0 1.473-2.985 2.667-6.667 2.667S1.333 5.473 1.333 4z"/><path d="M1.333 6.334v3C1.333 10.805 4.318 12 8 12s6.667-1.194 6.667-2.667V6.334a6.5 6.5 0 0 1-1.458.79C11.81 7.684 9.967 8 8 8s-3.809-.317-5.208-.876a6.5 6.5 0 0 1-1.458-.79z"/><path d="M14.667 11.668a6.5 6.5 0 0 1-1.458.789c-1.4.56-3.242.876-5.21.876-1.966 0-3.809-.316-5.208-.876a6.5 6.5 0 0 1-1.458-.79v1.666C1.333 14.806 4.318 16 8 16s6.667-1.194 6.667-2.667z"/></svg></span> web-02</div>
         <div class="tile accent"><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M1.333 2.667C1.333 1.194 4.318 0 8 0s6.667 1.194 6.667 2.667V4c0 1.473-2.985 2.667-6.667 2.667S1.333 5.473 1.333 4z"/><path d="M1.333 6.334v3C1.333 10.805 4.318 12 8 12s6.667-1.194 6.667-2.667V6.334a6.5 6.5 0 0 1-1.458.79C11.81 7.684 9.967 8 8 8s-3.809-.317-5.208-.876a6.5 6.5 0 0 1-1.458-.79z"/><path d="M14.667 11.668a6.5 6.5 0 0 1-1.458.789c-1.4.56-3.242.876-5.21.876-1.966 0-3.809-.316-5.208-.876a6.5 6.5 0 0 1-1.458-.79v1.666C1.333 14.806 4.318 16 8 16s6.667-1.194 6.667-2.667z"/></svg></span> db-01</div>
       </div>
-      <p style="color:var(--muted);font-size:14px;margin-top:18px">One tap → the command runs on every selected machine.</p>
+      <p style="color:var(--muted);font-size:14px;margin-top:18px" data-i18n="multi.caption">One tap → the command runs on every selected machine.</p>
     </div>
   </div>
 </section>
@@ -384,34 +407,34 @@
 <!-- BUTTON PACKS (community / makers) -->
 <section id="packs">
   <div class="wrap center">
-    <p class="eyebrow">For communities &amp; makers</p>
-    <h2>Button packs: share a whole setup in one click.</h2>
-    <p class="lead center">A pack is a ready-made set of buttons for a tool or a workflow. Install one and you're set up in seconds — no hunting, no guesswork. <b style="color:var(--txt)">Every pack is free.</b></p>
+    <p class="eyebrow" data-i18n="packs.eyebrow">For communities &amp; makers</p>
+    <h2 data-i18n="packs.h2">Button packs: share a whole setup in one click.</h2>
+    <p class="lead center" data-i18n="packs.lead">A pack is a ready-made set of buttons for a tool or a workflow. Install one and you're set up in seconds — no hunting, no guesswork. <b style="color:var(--txt)">Every pack is free.</b></p>
     <div class="split" style="margin-top:52px;text-align:left">
       <div class="feature-card">
         <div class="fic" style="font-size:26px;margin-bottom:12px">🌐</div>
-        <h3 style="font-size:19px;margin-bottom:8px">Make software people run?</h3>
-        <p style="color:var(--muted);font-size:15px">Ship an official pack for your software — from a weekend utility to a platform used by millions. Commandeck becomes a friendly graphical layer over your commands, and a faster path to "it just works" for everyone who runs it.</p>
+        <h3 style="font-size:19px;margin-bottom:8px" data-i18n="packs.c1h">Make software people run?</h3>
+        <p style="color:var(--muted);font-size:15px" data-i18n="packs.c1p">Ship an official pack for your software — from a weekend utility to a platform used by millions. Commandeck becomes a friendly graphical layer over your commands, and a faster path to "it just works" for everyone who runs it.</p>
         <ul class="check">
-          <li><span class="tick">✓</span><span>Your commands, one tap away for everyone.</span></li>
-          <li><span class="tick">✓</span><span>Signed &amp; trusted — installs verified by the app.</span></li>
-          <li><span class="tick">✓</span><span>Free to publish, free for users.</span></li>
+          <li><span class="tick">✓</span><span data-i18n="packs.c1li1">Your commands, one tap away for everyone.</span></li>
+          <li><span class="tick">✓</span><span data-i18n="packs.c1li2">Signed &amp; trusted — installs verified by the app.</span></li>
+          <li><span class="tick">✓</span><span data-i18n="packs.c1li3">Free to publish, free for users.</span></li>
         </ul>
       </div>
       <div class="feature-card">
         <div class="fic" style="font-size:26px;margin-bottom:12px">🛠️</div>
-        <h3 style="font-size:19px;margin-bottom:8px">Built a handy set of buttons?</h3>
-        <p style="color:var(--muted);font-size:15px">Export your buttons as a pack and submit it on GitHub. Once reviewed and signed, it shows up in the in-app gallery for everyone.</p>
+        <h3 style="font-size:19px;margin-bottom:8px" data-i18n="packs.c2h">Built a handy set of buttons?</h3>
+        <p style="color:var(--muted);font-size:15px" data-i18n="packs.c2p">Export your buttons as a pack and submit it on GitHub. Once reviewed and signed, it shows up in the in-app gallery for everyone.</p>
         <ul class="check">
-          <li><span class="tick">✓</span><span>Export to a shareable pack file — free.</span></li>
-          <li><span class="tick">✓</span><span>Submit by pull request, no account needed.</span></li>
-          <li><span class="tick">✓</span><span>Help others skip the setup you already figured out.</span></li>
+          <li><span class="tick">✓</span><span data-i18n="packs.c2li1">Export to a shareable pack file — free.</span></li>
+          <li><span class="tick">✓</span><span data-i18n="packs.c2li2">Submit by pull request on GitHub — no in-app sign-up.</span></li>
+          <li><span class="tick">✓</span><span data-i18n="packs.c2li3">Help others skip the setup you already figured out.</span></li>
         </ul>
       </div>
     </div>
     <div class="cta-row" style="margin-top:44px">
-      <a href="https://commandeck.app/packs" class="btn btn-primary">Browse button packs</a>
-      <a href="https://github.com/neurocontrarian/commandeck-packs" class="btn btn-ghost">Create &amp; submit a pack →</a>
+      <a href="https://commandeck.app/packs" class="btn btn-primary" data-i18n="packs.cta1">Browse button packs</a>
+      <a href="https://github.com/neurocontrarian/commandeck-packs" class="btn btn-ghost" data-i18n="packs.cta2">Create &amp; submit a pack →</a>
     </div>
   </div>
 </section>
@@ -419,13 +442,13 @@
 <!-- PERSONA -->
 <section style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap center">
-    <p class="eyebrow">Made for you</p>
-    <h2>If this is your setup, you're home.</h2>
+    <p class="eyebrow" data-i18n="per.eyebrow">Made for you</p>
+    <h2 data-i18n="per.h2">If this is your setup, you're home.</h2>
     <div class="persona-grid" style="text-align:left">
-      <div class="pcard"><div class="ic">🏠</div><p>You run a <b style="color:var(--txt)">home server</b> — a NAS, mini-PC, Proxmox or Docker box — with a machine or three.</p></div>
-      <div class="pcard"><div class="ic">🤖</div><p>You set it up <b style="color:var(--txt)">with an AI as your tutor</b>, and you'd rather not live in a terminal.</p></div>
-      <div class="pcard"><div class="ic">💡</div><p>You're comfortable on Windows or Mac, but <b style="color:var(--txt)">command lines aren't your happy place</b>.</p></div>
-      <div class="pcard"><div class="ic">🎯</div><p>You want your go-to commands <b style="color:var(--txt)">saved and one tap away</b> — across one machine or several.</p></div>
+      <div class="pcard"><div class="ic">🏠</div><p data-i18n="per.c1">You run a <b style="color:var(--txt)">home server</b> — a NAS, mini-PC, Proxmox or Docker box — with a machine or three.</p></div>
+      <div class="pcard"><div class="ic">🤖</div><p data-i18n="per.c2">You set it up <b style="color:var(--txt)">with an AI as your tutor</b>, and you'd rather not live in a terminal.</p></div>
+      <div class="pcard"><div class="ic">💡</div><p data-i18n="per.c3">You're comfortable on Windows or Mac, but <b style="color:var(--txt)">command lines aren't your happy place</b>.</p></div>
+      <div class="pcard"><div class="ic">🎯</div><p data-i18n="per.c4">You want your go-to commands <b style="color:var(--txt)">saved and one tap away</b> — across one machine or several.</p></div>
     </div>
   </div>
 </section>
@@ -433,48 +456,48 @@
 <!-- PRICING -->
 <section class="pricing" id="pricing">
   <div class="wrap center">
-    <p class="eyebrow">Simple pricing</p>
-    <h2>Buy once. Yours for good.</h2>
-    <p class="lead center">No subscription. No renewal. Try everything free for 14 days.</p>
+    <p class="eyebrow" data-i18n="price.eyebrow">Simple pricing</p>
+    <h2 data-i18n="price.h2">Buy once. Yours for good.</h2>
+    <p class="lead center" data-i18n="price.lead">No subscription. No renewal. Try everything free for 14 days.</p>
     <div class="price-grid" style="text-align:left">
       <div class="plan">
-        <h3>Free</h3>
+        <h3 data-i18n="price.free.name">Free</h3>
         <div class="amt">$0</div>
-        <p class="desc">Run commands on this computer. Forever.</p>
+        <p class="desc" data-i18n="price.free.desc">Run commands on this computer. Forever.</p>
         <ul>
-          <li><span class="tick">✓</span> Unlimited buttons on your PC</li>
-          <li><span class="tick">✓</span> All icons &amp; button colors</li>
-          <li><span class="tick">✓</span> No account, fully private</li>
-          <li><span class="tick">✓</span> Upgrade to SSH anytime</li>
+          <li><span class="tick">✓</span> <span data-i18n="price.free.li1">Unlimited buttons on your PC</span></li>
+          <li><span class="tick">✓</span> <span data-i18n="price.free.li2">All icons &amp; button colors</span></li>
+          <li><span class="tick">✓</span> <span data-i18n="price.free.li3">No account, fully private</span></li>
+          <li><span class="tick">✓</span> <span data-i18n="price.free.li4">Upgrade to SSH anytime</span></li>
         </ul>
-        <a href="https://github.com/neurocontrarian/commandeck/releases/latest" class="btn btn-ghost">Download free</a>
+        <a href="https://github.com/neurocontrarian/commandeck/releases/latest" class="btn btn-ghost" data-i18n="price.free.btn">Download free</a>
       </div>
       <div class="plan pro">
-        <span class="tag">Most popular</span>
-        <h3>Desktop</h3>
-        <div class="amt">$29 <span>once</span></div>
-        <p class="desc">Windows, macOS &amp; Linux. Lifetime.</p>
+        <span class="tag" data-i18n="price.pop">Most popular</span>
+        <h3 data-i18n="price.desk.name">Desktop</h3>
+        <div class="amt">$29 <span data-i18n="price.once">once</span></div>
+        <p class="desc" data-i18n="price.desk.desc">Windows, macOS &amp; Linux. Lifetime.</p>
         <ul>
-          <li><span class="tick">✓</span> Everything in Free</li>
-          <li><span class="tick">✓</span> SSH to all your machines</li>
-          <li><span class="tick">✓</span> Run on several machines at once</li>
-          <li><span class="tick">✓</span> Custom themes, backup &amp; more</li>
+          <li><span class="tick">✓</span> <span data-i18n="price.desk.li1">Everything in Free</span></li>
+          <li><span class="tick">✓</span> <span data-i18n="price.desk.li2">SSH to all your machines</span></li>
+          <li><span class="tick">✓</span> <span data-i18n="price.desk.li3">Run on several machines at once</span></li>
+          <li><span class="tick">✓</span> <span data-i18n="price.desk.li4">Custom themes, backup &amp; more</span></li>
         </ul>
-        <a href="https://github.com/neurocontrarian/commandeck/releases/latest" class="btn btn-primary">Start your 14-day trial</a>
-        <p style="font-size:13px;color:var(--muted);margin-top:12px;text-align:center">or <a href="https://neurocontrarian.lemonsqueezy.com/checkout/buy/9c16845a-8ab6-4a36-b8da-9874d9d64f33" style="color:#9b7bff">buy a license</a> — activate it in the app</p>
+        <a href="https://github.com/neurocontrarian/commandeck/releases/latest" class="btn btn-primary" data-i18n="price.desk.btn">Start your 14-day trial</a>
+        <p style="font-size:13px;color:var(--muted);margin-top:12px;text-align:center" data-i18n="price.desk.buy">or <a href="https://neurocontrarian.lemonsqueezy.com/checkout/buy/9c16845a-8ab6-4a36-b8da-9874d9d64f33" style="color:#9b7bff">buy a license</a> — activate it in the app</p>
       </div>
       <div class="plan">
-        <span class="tag" style="background:var(--bg-soft);color:var(--brand-2);border:1px solid rgba(34,211,238,.4)">Coming soon</span>
-        <h3>Android</h3>
-        <div class="amt">$19 <span>once</span></div>
-        <p class="desc">Your buttons in your pocket. In preparation.</p>
+        <span class="tag" style="background:var(--bg-soft);color:var(--brand-2);border:1px solid rgba(34,211,238,.4)" data-i18n="price.soon">Coming soon</span>
+        <h3 data-i18n="price.and.name">Android</h3>
+        <div class="amt">$19 <span data-i18n="price.once">once</span></div>
+        <p class="desc" data-i18n="price.and.desc">Your buttons in your pocket. In preparation.</p>
         <ul>
-          <li><span class="tick">✓</span> The full button grid, on mobile</li>
-          <li><span class="tick">✓</span> Secure SSH to your machines</li>
-          <li><span class="tick">✓</span> One-time price, no subscription</li>
-          <li><span class="tick">✓</span> Local backup &amp; restore</li>
+          <li><span class="tick">✓</span> <span data-i18n="price.and.li1">The full button grid, on mobile</span></li>
+          <li><span class="tick">✓</span> <span data-i18n="price.and.li2">Secure SSH to your machines</span></li>
+          <li><span class="tick">✓</span> <span data-i18n="price.and.li3">One-time price, no subscription</span></li>
+          <li><span class="tick">✓</span> <span data-i18n="price.and.li4">Local backup &amp; restore</span></li>
         </ul>
-        <a href="#" class="btn btn-ghost" aria-disabled="true">Coming soon</a>
+        <a href="#" class="btn btn-ghost" aria-disabled="true" data-i18n="price.and.btn">Coming soon</a>
       </div>
     </div>
   </div>
@@ -484,9 +507,9 @@
 <section class="final">
   <div class="wrap">
     <div class="box">
-      <h2>Stop hunting. Start tapping.</h2>
-      <p class="lead center" style="margin-bottom:30px">The commands you rely on — saved, organized, and one tap away.</p>
-      <a href="https://github.com/neurocontrarian/commandeck/releases/latest" class="btn btn-primary">Download — free 14-day Pro trial →</a>
+      <h2 data-i18n="final.h2">Stop hunting. Start tapping.</h2>
+      <p class="lead center" style="margin-bottom:30px" data-i18n="final.lead">The commands you rely on — saved, organized, and one tap away.</p>
+      <a href="https://github.com/neurocontrarian/commandeck/releases/latest" class="btn btn-primary" data-i18n="final.cta">Download — free 14-day Pro trial →</a>
     </div>
   </div>
 </section>
@@ -494,26 +517,27 @@
 <!-- REPORT A BUG -->
 <section style="padding:64px 0">
   <div class="wrap center">
-    <p class="eyebrow">Found a glitch?</p>
-    <h2>Report a bug</h2>
-    <p class="lead center" style="margin-bottom:28px">Something not working the way it should? Let us know — it takes a minute and helps make Commandeck better for everyone.</p>
-    <a href="https://github.com/neurocontrarian/commandeck/issues/new" class="btn btn-ghost">Report a bug on GitHub →</a>
+    <p class="eyebrow" data-i18n="bug.eyebrow">Found a glitch?</p>
+    <h2 data-i18n="bug.h2">Report a bug</h2>
+    <p class="lead center" style="margin-bottom:28px" data-i18n="bug.lead">Something not working the way it should? Let us know — it takes a minute and helps make Commandeck better for everyone.</p>
+    <a href="https://github.com/neurocontrarian/commandeck/issues/new" class="btn btn-ghost" data-i18n="bug.cta">Report a bug on GitHub →</a>
   </div>
 </section>
 
 <footer>
   <div class="wrap foot">
     <div class="logo"><span class="mark"></span> Commandeck</div>
-    <div>Private by design · No account · No cloud</div>
+    <div data-i18n="foot.tagline">Private by design · No account · No cloud</div>
     <div>
-      <a href="https://commandeck.app">Docs</a> &nbsp;·&nbsp;
-      <a href="https://commandeck.app/faq">FAQ</a> &nbsp;·&nbsp;
-      <a href="https://github.com/neurocontrarian/commandeck/releases/latest">Download</a> &nbsp;·&nbsp;
-      <a href="https://github.com/neurocontrarian/commandeck/issues/new">Report a bug</a>
+      <a href="https://commandeck.app" data-i18n="foot.docs">Docs</a> &nbsp;·&nbsp;
+      <a href="https://commandeck.app/faq" data-i18n="foot.faq">FAQ</a> &nbsp;·&nbsp;
+      <a href="https://github.com/neurocontrarian/commandeck/releases/latest" data-i18n="foot.download">Download</a> &nbsp;·&nbsp;
+      <a href="https://github.com/neurocontrarian/commandeck/issues/new" data-i18n="foot.bug">Report a bug</a>
     </div>
   </div>
 </footer>
 
+<script src="assets/i18n.js"></script>
 <script>
   const obs=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.12});
   document.querySelectorAll('section .wrap > *, .step, .pcard, .plan').forEach((el,i)=>{el.classList.add('reveal');obs.observe(el)});
